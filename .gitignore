@@ -17,3 +17,7 @@ craftbukkit.jar
 
 # run-paper gradle plugin
 run/
+
+.direnv/
+.envrc
+shell.nix

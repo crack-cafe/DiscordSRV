@@ -423,9 +423,9 @@ public class DiscordChatListener extends ListenerAdapter {
         if (repliedMessage == null) {
             return "";
         }
-
         boolean isLegacy = MessageUtil.isLegacy(format);
         String message = repliedMessage.getContentRaw();
+
 
         Component reserialized = MessageUtil.reserializeToMinecraftBasedOnConfig(message);
         message = MessageUtil.toPlain(reserialized, isLegacy);
@@ -434,8 +434,8 @@ public class DiscordChatListener extends ListenerAdapter {
         Function<String, String> escape = isLegacy
                 ? str -> str
                 : str -> str.replaceAll("([<>])", "\\\\$1");
-
-        final String repliedUserName = repliedMessage.getMember() != null ? repliedMessage.getMember().getEffectiveName() : repliedMessage.getAuthor().getName();
+        boolean replyToBot = repliedMessage.getAuthor().equals(DiscordUtil.getJda().getSelfUser());
+        final String repliedUserName = replyToBot ? message.split("»")[0].strip() : repliedMessage.getMember() != null ? repliedMessage.getMember().getEffectiveName() : repliedMessage.getAuthor().getName();
 
         return format.replace("%name%", escape.apply(MessageUtil.strip(repliedUserName)))
                 .replace("%username%", escape.apply(MessageUtil.strip(repliedMessage.getAuthor().getName())))
