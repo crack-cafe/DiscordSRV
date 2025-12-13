@@ -38,7 +38,8 @@ public class DynmapHook implements PluginHook {
     public void onDynmapWebChat(DynmapWebChatEvent event) {
         String format = LangUtil.Message.DYNMAP_DISCORD_FORMAT.toString()
                 .replace("%message%", MessageUtil.strip(DiscordUtil.escapeMarkdown(event.getMessage())))
-                .replace("%name%", MessageUtil.strip(DiscordUtil.escapeMarkdown(event.getName())));
+                .replace("%name%", MessageUtil.strip(DiscordUtil.escapeMarkdown(event.getName())))
+                .replace("%playernameseparator%", MessageUtil.strip(LangUtil.Message.PLAYER_NAME_SEPARATOR.toString()));
 
         if (!DiscordSRV.config().getBoolean("DiscordChatChannelTranslateMentions")) {
             format = format.replace("@", "@\u200B"); // zero-width space

@@ -858,6 +858,7 @@ public class LangUtil {
         CHAT_TO_DISCORD("MinecraftChatToDiscordMessageFormat", false),
         CHAT_TO_DISCORD_NO_PRIMARY_GROUP("MinecraftChatToDiscordMessageFormatNoPrimaryGroup", false),
         CHAT_TO_MINECRAFT("DiscordToMinecraftChatMessageFormat", true),
+        PLAYER_NAME_SEPARATOR("PlayerNameSeparator",true),
         CHAT_TO_MINECRAFT_ALL_ROLES_SEPARATOR("DiscordToMinecraftAllRolesSeparator", true),
         CHAT_TO_MINECRAFT_NO_ROLE("DiscordToMinecraftChatMessageFormatNoRole", true),
         CHAT_TO_MINECRAFT_REPLY("DiscordToMinecraftMessageReplyFormat", true),

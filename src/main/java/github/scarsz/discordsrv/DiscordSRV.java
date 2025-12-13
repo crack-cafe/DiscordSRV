@@ -1802,6 +1802,7 @@ public class DiscordSRV extends JavaPlugin {
                     .replace("%displayname%", DiscordUtil.escapeMarkdown(displayName))
                     .replace("%displaynamenoescapes%", displayName)
                     .replace("%username%", username)
+                    .replace("%playernameseparator%", MessageUtil.strip(LangUtil.Message.PLAYER_NAME_SEPARATOR.toString()))
                     .replaceAll("%time%|%date%", TimeUtil.timeStamp())
                     .replace("%channelname%", channel != null ? channel.substring(0, 1).toUpperCase() + channel.substring(1) : "")
                     .replace("%primarygroup%", userPrimaryGroup)

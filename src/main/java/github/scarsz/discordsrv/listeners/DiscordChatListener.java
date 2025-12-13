@@ -413,6 +413,7 @@ public class DiscordChatListener extends ListenerAdapter {
                 .replace("%toproleinitial%", !selectedRoles.isEmpty() ? escape.apply(DiscordUtil.getRoleName(selectedRoles.get(0)).substring(0, 1)) : "")
                 .replace("%toprolealias%", getTopRoleAlias(!selectedRoles.isEmpty() ? selectedRoles.get(0) : null))
                 .replace("%allroles%", escape.apply(DiscordUtil.getFormattedRoles(selectedRoles)))
+                .replace("%playernameseparator%", MessageUtil.strip(LangUtil.Message.PLAYER_NAME_SEPARATOR.toString()))
                 .replace("%reply%", replaceReplyPlaceholders(LangUtil.Message.CHAT_TO_MINECRAFT_REPLY.toString(), event.getMessage().getReferencedMessage()))
                 .replace("\\~", "~") // get rid of escaped characters, since Minecraft doesn't use markdown
                 .replace("\\*", "*") // get rid of escaped characters, since Minecraft doesn't use markdown
@@ -435,7 +436,9 @@ public class DiscordChatListener extends ListenerAdapter {
                 ? str -> str
                 : str -> str.replaceAll("([<>])", "\\\\$1");
         boolean replyToBot = repliedMessage.getAuthor().equals(DiscordUtil.getJda().getSelfUser());
-        final String repliedUserName = replyToBot ? message.split("»")[0].strip() : repliedMessage.getMember() != null ? repliedMessage.getMember().getEffectiveName() : repliedMessage.getAuthor().getName();
+        String[] messageNamePart = message.split(LangUtil.Message.PLAYER_NAME_SEPARATOR.toString())[0].strip().split(" ");
+        String mcUserName = messageNamePart[messageNamePart.length - 1].strip();
+        final String repliedUserName = replyToBot ? mcUserName : repliedMessage.getMember() != null ? repliedMessage.getMember().getEffectiveName() : repliedMessage.getAuthor().getName();
 
         return format.replace("%name%", escape.apply(MessageUtil.strip(repliedUserName)))
                 .replace("%username%", escape.apply(MessageUtil.strip(repliedMessage.getAuthor().getName())))

@@ -6,8 +6,8 @@
 # チャンネルごとに異なるフォーマットを指定できます。 「mychannel」という名前のチャンネルがあるとします。
 # グローバルに定義されたもの以外のフォーマットにしたい場合は、次のプロパティを追加できます。
 #
-# DiscordToMinecraftChatMessageFormat_mychannel: "[&bDiscord From MyChannel &r| %toprolecolor%%toprole%&r] %name% » %message%"
-# DiscordToMinecraftChatMessageFormatNoRole_mychannel: "[&bDiscord From MyChannel&r] %name% » %message%"
+# DiscordToMinecraftChatMessageFormat_mychannel: "[&bDiscord From MyChannel &r| %toprolecolor%%toprole%&r] %name% %playernameseparator% %message%"
+# DiscordToMinecraftChatMessageFormatNoRole_mychannel: "[&bDiscord From MyChannel&r] %name% %playernameseparator% %message%"
 #
 # 使用できるキーワード:
 # %allroles%:       発言した人が持っている全てのロール。DiscordToMinecraftAllRolesSeparatorで指定される記号で繋げられて表示されます
@@ -49,9 +49,10 @@
 #
 # 注: DiscordToMinecraftMessageReplyFormatをメッセージに表示する場合は、%reply%プレースホルダーがフォーマットで存在する必要があります。
 #
-DiscordToMinecraftChatMessageFormat: "[<aqua>Discord</aqua> | %toprolecolor%%toprolealias%<reset>] %name%%reply% » %message%"
-DiscordToMinecraftChatMessageFormatNoRole: "[<aqua>Discord</aqua>] %name%%reply% » %message%"
+DiscordToMinecraftChatMessageFormat: "[<aqua>Discord</aqua> | %toprolecolor%%toprolealias%<reset>] %name%%reply% %playernameseparator% %message%"
+DiscordToMinecraftChatMessageFormatNoRole: "[<aqua>Discord</aqua>] %name%%reply% %playernameseparator% %message%"
 DiscordToMinecraftAllRolesSeparator: " | "
+PlayerNameSeparator: "»"
 DiscordToMinecraftMessageReplyFormat: " (%name% への返信)"
 
 # Minecraft -> Discord メッセージ
@@ -82,8 +83,8 @@ DiscordToMinecraftMessageReplyFormat: " (%name% への返信)"
 #                  例: Global
 # PlaceholderAPIプレースホルダもサポートされています
 #
-MinecraftChatToDiscordMessageFormat: "**%primarygroup%** %displayname% » %message%"
-MinecraftChatToDiscordMessageFormatNoPrimaryGroup: "%displayname% » %message%"
+MinecraftChatToDiscordMessageFormat: "**%primarygroup%** %displayname% %playernameseparator% %message%"
+MinecraftChatToDiscordMessageFormatNoPrimaryGroup: "%displayname% %playernameseparator% %message%"
 
 # チャットチャンネルのプラグインメッセージ
 # これは、サポートされているチャットチャンネルプラグインがフックされている場合にのみ使用される特別なメッセージです。
@@ -120,7 +121,7 @@ ChatChannelHookMessageFormat: "%channelcolor%[%channelnickname%]&r %message%"
 #
 DynmapNameFormat: "[Discord | %toprolealias%] %username%"
 DynmapChatFormat: "%message%"
-DynmapDiscordFormat: "[Dynmap] %name% » %message%"
+DynmapDiscordFormat: "[Dynmap] %name% %playernameseparator% %message%"
 
 # Discord コンソールチャンネルメッセージ設定
 # コンソールチャンネルが有効なら、コンソールからコンソールチャンネルに送信される時に適用されるフォーマット設定です。

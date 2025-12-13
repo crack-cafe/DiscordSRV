@@ -141,7 +141,9 @@ public class VentureChatHook implements ChatHook {
                 .replaceAll("%time%|%date%", TimeUtil.timeStamp())
                 .replace("%channelname%", channel != null ? channel.substring(0, 1).toUpperCase() + channel.substring(1) : "")
                 .replace("%primarygroup%", userPrimaryGroup)
-                .replace("%username%", formatUsername);
+                .replace("%username%", formatUsername)
+                .replace("%playernameseparator%", MessageUtil.strip(LangUtil.Message.PLAYER_NAME_SEPARATOR.toString()));
+
         discordMessage = PlaceholderUtil.replacePlaceholdersToDiscord(discordMessage);
 
         String displayName = MessageUtil.strip(event.getNickname());

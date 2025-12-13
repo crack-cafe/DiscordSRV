@@ -6,8 +6,8 @@
 # Du kan ha forskjellige formater per kanal. Ta for eksempel at du har en kanal kalt: "MinKanal".
 # Hvis du vil bruke en annen formatering enn den globale kan du legge til følgende egenskaper:
 #
-# DiscordToMinecraftChatMessageFormat_mychannel: "[&bDiscord Fra MinKanal &r| %toprolecolor%%toprole%&r] %name% » %message%"
-# DiscordToMinecraftChatMessageFormatNoRole_mychannel: "[&bDiscord Fra MinKanal&r] %name% » %message%"
+# DiscordToMinecraftChatMessageFormat_mychannel: "[&bDiscord Fra MinKanal &r| %toprolecolor%%toprole%&r] %name% %playernameseparator% %message%"
+# DiscordToMinecraftChatMessageFormatNoRole_mychannel: "[&bDiscord Fra MinKanal&r] %name% %playernameseparator% %message%"
 #
 # Tilgjengelige placeholders:
 # %allroles%:       alle rollene personen har kombinert med tegn fra DiscordToMinecraftAllRolesSeparator mellom alle
@@ -47,9 +47,10 @@
 #
 # MERK: %reply%-placeholderen må være tilstede i formatet hvis DiscordToMinecraftMessageReplyFormat skal vise svaret som en melding
 #
-DiscordToMinecraftChatMessageFormat: "[<aqua>Discord</aqua> | %toprolecolor%%toprolealias%<reset>] %name%%reply% » %message%"
-DiscordToMinecraftChatMessageFormatNoRole: "[<aqua>Discord</aqua>] %name%%reply% » %message%"
+DiscordToMinecraftChatMessageFormat: "[<aqua>Discord</aqua> | %toprolecolor%%toprolealias%<reset>] %name%%reply% %playernameseparator% %message%"
+DiscordToMinecraftChatMessageFormatNoRole: "[<aqua>Discord</aqua>] %name%%reply% %playernameseparator% %message%"
 DiscordToMinecraftAllRolesSeparator: " | "
+PlayerNameSeparator: "»"
 DiscordToMinecraftMessageReplyFormat: " (svarer %name%)"
 
 # Minecraft -> Discord-meldinger
@@ -80,8 +81,8 @@ DiscordToMinecraftMessageReplyFormat: " (svarer %name%)"
 #                  f.eks: Global
 # PlaceholderAPI-placeholders er også støttet
 #
-MinecraftChatToDiscordMessageFormat: "**%primarygroup%** %displayname% » %message%"
-MinecraftChatToDiscordMessageFormatNoPrimaryGroup: "%displayname% » %message%"
+MinecraftChatToDiscordMessageFormat: "**%primarygroup%** %displayname% %playernameseparator% %message%"
+MinecraftChatToDiscordMessageFormatNoPrimaryGroup: "%displayname% %playernameseparator% %message%"
 
 # Melding for chat-channel-plugins
 # Dette er en spesiell melding som bare blir brukt når en støttet chat-channel-plugin er tilknyttet
@@ -118,7 +119,7 @@ ChatChannelHookMessageFormat: "%channelcolor%[%channelnickname%]&r %message%"
 #
 DynmapNameFormat: "[Discord | %toprolealias%] %username%"
 DynmapChatFormat: "%message%"
-DynmapDiscordFormat: "[Dynmap] %name% » %message%"
+DynmapDiscordFormat: "[Dynmap] %name% %playernameseparator% %message%"
 
 # Konsollkanal-meldinger på Discord
 # Dette er formatet som brukes ved sending av linjer fra konsollen til konsollkanalen når det er skrudd på

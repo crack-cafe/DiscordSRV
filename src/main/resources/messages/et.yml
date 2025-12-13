@@ -6,8 +6,8 @@
 # You can specify a different format per channel. Let's say you have a channel named: "mychannel".
 # If you want it to have other formatting than the one defined globally you can add following properties:
 #
-# DiscordToMinecraftChatMessageFormat_mychannel: "[&bDiscord kanalilt Minukanal &r| %toprolecolor%%toprole%&r] %name% » %message%"
-# DiscordToMinecraftChatMessageFormatNoRole_mychannel: "[&bDiscord kanalilt Minukanal&r] %name% » %message%"
+# DiscordToMinecraftChatMessageFormat_mychannel: "[&bDiscord kanalilt Minukanal &r| %toprolecolor%%toprole%&r] %name% %playernameseparator% %message%"
+# DiscordToMinecraftChatMessageFormatNoRole_mychannel: "[&bDiscord kanalilt Minukanal&r] %name% %playernameseparator% %message%"
 #
 # Available placeholders:
 # %allroles%:       all of the person's roles combined with DiscordToMinecraftAllRolesSeparator between them all
@@ -49,9 +49,10 @@
 #
 # NOTE: The %reply% placeholder needs to be present in the format if you want the DiscordToMinecraftMessageReplyFormat to display in your message.
 #
-DiscordToMinecraftChatMessageFormat: "[<aqua>Discord</aqua> | %toprolecolor%%toprolealias%<reset>] %name%%reply% » %message%"
-DiscordToMinecraftChatMessageFormatNoRole: "[<aqua>Discord</aqua>] %name%%reply% » %message%"
+DiscordToMinecraftChatMessageFormat: "[<aqua>Discord</aqua> | %toprolecolor%%toprolealias%<reset>] %name%%reply% %playernameseparator% %message%"
+DiscordToMinecraftChatMessageFormatNoRole: "[<aqua>Discord</aqua>] %name%%reply% %playernameseparator% %message%"
 DiscordToMinecraftAllRolesSeparator: " | "
+PlayerNameSeparator: "»"
 DiscordToMinecraftMessageReplyFormat: " (vastamine %name%)"
 
 # Minecraft -> Discord message
@@ -82,8 +83,8 @@ DiscordToMinecraftMessageReplyFormat: " (vastamine %name%)"
 #                  example: Global
 # PlaceholderAPI placeholders are also supported
 #
-MinecraftChatToDiscordMessageFormat: "**%primarygroup%** %displayname% » %message%"
-MinecraftChatToDiscordMessageFormatNoPrimaryGroup: "%displayname% » %message%"
+MinecraftChatToDiscordMessageFormat: "**%primarygroup%** %displayname% %playernameseparator% %message%"
+MinecraftChatToDiscordMessageFormatNoPrimaryGroup: "%displayname% %playernameseparator% %message%"
 
 # Chat channel plugin message
 # This is a special message that's only used when a supported chat channel plugin is hooked
@@ -120,7 +121,7 @@ ChatChannelHookMessageFormat: "%channelcolor%[%channelnickname%]&r %message%"
 #
 DynmapNameFormat: "[Discord | %toprolealias%] %username%"
 DynmapChatFormat: "%message%"
-DynmapDiscordFormat: "[Dynmap] %name% » %message%"
+DynmapDiscordFormat: "[Dynmap] %name% %playernameseparator% %message%"
 
 # Discord console channel message
 # This is the format used when sending a line from the console to the console channel, if enabled
